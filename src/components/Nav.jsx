@@ -11,12 +11,12 @@ function Nav () {
                 </a>
                 <ul className="nav__links">
                     <li className="nav__list">
-                        <a href="" className="nav__link">
+                        <a href="/" className="nav__link">
                             Home
                         </a>
                     </li>
                     <li className="nav__list">
-                        <a href="" className="nav__link">
+                        <a href="/" className="nav__link">
                             Books
                         </a>
                     </li>
@@ -24,12 +24,28 @@ function Nav () {
                         <FontAwesomeIcon icon="bars"/>
                     </button>
                     <li className="nav__icon">
-                        <a href="" className="nav__link">
+                        <a href="/cart" className="nav__link">
                         <FontAwesomeIcon icon="shopping-cart"/>
                         </a>
                         <span className="cart__length">2</span>
                     </li>
                 </ul>
+                <div className="menu__backdrop">
+                    <button className="button__menu button__menu--close">
+                        <FontAwesomeIcon icon="times"/>
+                    </button>
+                    <ul className="menu__links">
+                        <li className="menu__list">
+                            <a href="/ "className="menu__link">Home</a>
+                        </li>
+                        <li className="menu__list">
+                            <a href="/ "className="menu__link">Books</a>
+                        </li>
+                        <li className="menu__list">
+                            <a href="/ "className="menu__link">Cart</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </nav>
     )
