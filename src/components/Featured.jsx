@@ -5,7 +5,6 @@ import {books} from "../data"
 
 
 export default function Featured() {
-  console.log(books)
   return (
     <section id="features">
       <div className="container">
