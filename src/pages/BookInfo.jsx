@@ -1,10 +1,13 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Rating from "../components/UI/Rating";
 import Price from "../components/UI/Price";
 
 export default function BookInfo({ books }) {
+    const { id } = useParams()
+    const book = books.find(book => +book.id === +id)
+    console.log(book)
   return (
     <div id="books__body">
       <main id="books__main">
@@ -21,30 +24,26 @@ export default function BookInfo({ books }) {
             <div className="book__selected">
               <figure className="book__selected--figure">
                 <img
-                  src="https://covers.openlibrary.org/b/id/8091016-L.jpg"
+                  src={book.url}
                   alt=""
                   className="book__selected--img"
                 />
               </figure>
               <div className="book__selected--description">
                 <h2 className="book__selected--title">
-                  Crack the coding interview
+                  {book.title}
                 </h2>
-                <Rating rating="4.5" />
+                <Rating rating={book.rating}/>
                 <div className="book__selected--price">
-                  <Price originalPrice={50} salePrice={20} />
+                  <Price originalPrice={book.originalPrice} salePrice={book.salePrice} />
                 </div>
                 <div className="book__summary">
-                  <div className="book__summarry--title">Summary</div>
+                  <h3 className="book__summarry--title">Summary</h3>
                   <p className="book__summary--para">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                    Similique a excepturi consectetur voluptas vitae accusamus
-                    dignissimos, error quod inventore rem.
+                    {book.firstPara}
                   </p>
                   <p className="book__summary--para">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                    Similique a excepturi consectetur voluptas vitae accusamus
-                    dignissimos, error quod inventore rem.
+                    {book.secondPara}
                   </p>
                 </div>
                 <button className="btn">Add to cart</button>
